@@ -257,6 +257,7 @@ SecAccessControlCreateFlags accessControlValue(NSDictionary *options)
     (__bridge NSString *)kSecClass: (__bridge id)(kSecClassGenericPassword),
     (__bridge NSString *)kSecAttrService: service,
     (__bridge NSString *)kSecReturnAttributes: (__bridge id)kCFBooleanTrue,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecReturnData: (__bridge id)kCFBooleanFalse
   };
 
@@ -269,6 +270,7 @@ SecAccessControlCreateFlags accessControlValue(NSDictionary *options)
     (__bridge NSString *)kSecClass: (__bridge id)(kSecClassInternetPassword),
     (__bridge NSString *)kSecAttrServer: server,
     (__bridge NSString *)kSecReturnAttributes: (__bridge id)kCFBooleanTrue,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecReturnData: (__bridge id)kCFBooleanFalse
   };
 
@@ -363,6 +365,7 @@ RCT_EXPORT_METHOD(setGenericPasswordForOptions:(NSDictionary *)options
     (__bridge NSString *)kSecClass: (__bridge id)(kSecClassGenericPassword),
     (__bridge NSString *)kSecAttrService: service,
     (__bridge NSString *)kSecAttrAccount: username,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecValueData: [password dataUsingEncoding:NSUTF8StringEncoding]
   };
 
@@ -384,6 +387,7 @@ RCT_EXPORT_METHOD(getGenericPasswordForOptions:(NSDictionary * __nullable)option
     (__bridge NSString *)kSecReturnAttributes: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecReturnData: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecMatchLimit: (__bridge NSString *)kSecMatchLimitOne,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecUseOperationPrompt: authenticationPrompt
   };
 
@@ -449,6 +453,7 @@ RCT_EXPORT_METHOD(setInternetCredentialsForServer:(NSString *)server
     (__bridge NSString *)kSecClass: (__bridge id)(kSecClassInternetPassword),
     (__bridge NSString *)kSecAttrServer: server,
     (__bridge NSString *)kSecAttrAccount: username,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecValueData: [password dataUsingEncoding:NSUTF8StringEncoding]
   };
 
@@ -498,6 +503,7 @@ RCT_EXPORT_METHOD(getInternetCredentialsForServer:(NSString *)server
     (__bridge NSString *)kSecReturnAttributes: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecReturnData: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecMatchLimit: (__bridge NSString *)kSecMatchLimitOne,
+    (__bridge NSString *)kSecAttrSynchronizable: (__bridge id)kCFBooleanTrue,
     (__bridge NSString *)kSecUseOperationPrompt: authenticationPrompt
   };
 
